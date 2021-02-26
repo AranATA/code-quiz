@@ -1,14 +1,22 @@
 :root {
-    background-color: #ecf5ff;
+    background-color: #ffecf6;
     font-size: 62.5%;
+
+    /* --darktext: rgb(8, 32, 83);
+    --lighttext:rgb(94, 182, 204);
+    --darkbg:rgb(3, 22, 27);
+    --lightbg:rgb(94, 182, 204);
+    --imageborder: rgb(39, 92, 207);
+    --headingborder: rgb(8, 32, 83); */
+
   }
 
   * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: rgb(41, 40, 40);
   }
 
   h1,
@@ -19,23 +27,97 @@
   }
 
   h1 {
-    font-size: 5.4rem;
-    color: #56a5eb;
-    margin-bottom: 5rem;
+    font-size: 7.25rem;
+    color: #7b238d;
+    text-justify: inter-word;
+    text-align: center;
+    margin-bottom: 6rem;
   }
   
   h1 > span {
-    font-size: 2.4rem;
-    font-weight: 500;
+    font-size: 3rem;
+    font-weight: 0;
   }
   
   h2 {
-    font-size: 4.2rem;
+    font-size: 5.5rem;
     margin-bottom: 4rem;
     font-weight: 700;
   }
   
   h3 {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
     font-weight: 500;
   }
+
+  p {
+    background-color: #770c65;
+    color:#ebe5e8;
+    font-size: 2.5rem;
+    text-align: justify;
+    text-justify: inter-character;
+    line-height: 3.8rem;
+    outline: 0.25rem solid #ebe5e8;
+    outline-offset: -1rem;
+    padding: 4rem;
+    margin-bottom: 4.5rem;
+  }
+
+  /* utility classes */
+
+  .main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .container > * {
+    width: 100%;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* we are skipping some classes here! Check them later, if necessary add them*/
+
+ /* Buttons */
+ .btn {
+  font-size: 2.85rem;
+  font-weight: 700;
+  color: #7b238d;
+  background-color: #ebe5e8;
+  padding: 1rem 0;
+  width: 20rem;
+  text-align: center;
+  border: 0.3rem solid #770c65;
+  border-radius: 3.75rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+ }
+
+ .btn:hover {
+  filter:brightness(104%);
+  /* color:#b15da3; */
+  box-shadow: -0.2rem 0.225rem 0.7rem 0 #b15da3;
+  transform: translateY(-0.2rem);
+  transition: transform 150ms;
+}
+ 
+/* check to learn more here... */
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
