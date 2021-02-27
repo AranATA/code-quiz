@@ -30,37 +30,49 @@ var availableQuestions = [];
 
 var questionSet = [
   {
-    questionProp: "Inside which HTML element do we put the JavaScript??",
-    choice1: "<script>",
-    choice2: "<javascript>",
-    choice3: "<js>",
-    choice4: "<scripting>",
-    answer: 1
+    questionProp: "Why do we need to convert an object into JSON in order for it to properly persist to local storage?",
+    choice1: "It is convention to store objects using JSON, and we must follow that pattern so that our code is easy to read.",
+    choice2: "Local storage cannot read JavaScript, so we convert JavaScript into JSON.",
+    choice3: "Local storage only accepts JSON objects.",
+    choice4: "Local storage can only store strings, so we convert the object to JSON to store it properly.",
+    answer: 4
   },
   {
     questionProp:
-      "What is the correct syntax for referring to an external script called 'xxx.js'?",
-    choice1: "<script href='xxx.js'>",
-    choice2: "<script name='xxx.js'>",
-    choice3: "<script src='xxx.js'>",
-    choice4: "<script file='xxx.js'>",
+      "What value would we add to setInterval() if we want a function called, myTimer() to run every 3 seconds?",
+    choice1: "setInterval(myTimer, 300)",
+    choice2: "setInterval(myTimer, 30)",
+    choice3: "setInterval(myTimer, 3)",
+    choice4: "setInterval(myTimer, 3000)",
+    answer: 4
+  },
+  {
+    questionProp: "Which statement best describes what is happening to data when it is persisted to local storage?",
+    choice1: "The data is stored in the client or browser.",
+    choice2: "The data is stored under the Applications tab in Chrome Dev Tools.",
+    choice3: "The data is stored in the window called localStorage.",
+    choice4: "The data is stored in the database in the backend.",
+    answer: 1
+  },
+  {
+    questionProp: "While creating a form for a client, you decide that you do not want the corresponding browser actions to happen, and you want to implement another behavior instead. What would you use to make this possible?",
+    choice1: "event.dispatchEvent()",
+    choice2: "event.stopAction()",
+    choice3: "event.preventDefault()",
+    choice4: "event.stopPropagation()",
     answer: 3
   },
   {
-    questionProp: " How do you write 'Hello World' in an alert box?",
-    choice1: "msgBox('Hello World');",
-    choice2: "alertBox('Hello World');",
-    choice3: "msg('Hello World');",
-    choice4: "alert('Hello World');",
-    answer: 4
+    questionProp: "Which property can you use in order to implement event delegation?",
+    choice1: "event.stopPropagation()",
+    choice2: "event.target",
+    choice3: "event.addEventListener()",
+    choice4: "event.preventDefault()",
+    answer: 2
   }
 ];
 
 availableQuestions = [...questionSet];
-
-//CONSTANTS
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
 
 
 startQuiz();
@@ -163,19 +175,5 @@ choices.forEach(function(choice) {
       selectedChoice.parentElement.classList.remove(answerValue);
       getNewQuestion();
     }, 1000);
-
-  
-
-    
-    // checkAnswer()
-})
-
-function checkAnswer(){
-   
-
-
-
-
-
-}    
+  })
 })
