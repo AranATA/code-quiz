@@ -40,14 +40,17 @@
   }
   
   h2 {
-    font-size: 3.75rem;
-    margin-bottom: 4rem;
+    font-size: 2.75rem;
     font-weight: 150;
+    text-align:center;
+    line-height: 4rem;
+    margin-bottom: 4rem;
   }
   
   h3 {
     font-size: 1.75rem;
     font-weight: 500;
+    line-height: 1.8rem;
   }
 
 /* utility classes */
@@ -72,7 +75,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 65rem;
+    max-width: 90rem;
     margin: 0 auto;
     padding: 2rem;
   }
@@ -98,7 +101,7 @@
   font-size: 2.85rem;
   font-weight: 700;
   color: #7b238d;
-  background-color: #ebe5e8;
+  background-color: #f8d4e7;
   padding: 1rem 0;
   width: 20rem;
   text-align: center;
@@ -109,7 +112,7 @@
  }
 
  .btn:hover {
-  filter:brightness(105%);
+  filter:brightness(110%);
   box-shadow: -0.2rem 0.225rem 0.7rem 0 #b15da3;
   transform: translateY(-0.2rem);
   transition: transform 150ms;

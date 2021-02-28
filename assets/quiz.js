@@ -6,20 +6,22 @@ var question = document.getElementById("question-line");
 
 var choices = Array.from(document.getElementsByClassName("choice-text"));
 
-var timerElement = document.querySelector(".timer-count");
+var timerElement = document.getElementById("timer-count");
+var timer;
+var timerCount;
+
+var correctAnswersElement = document.getElementById("correct-count");
+var correctCount = 0;
+
+
 
 // it is an object!
 var currentQuestion = {};
 // it is for delay
 var acceptingAnswers = false;
-
 var selectedAnswer;
 
 var quizComplete = false;
-
-var timer;
-
-var timerCount;
 
 var score = 0;
 
@@ -73,7 +75,7 @@ var questionSet = [
 ];
 
 availableQuestions = [...questionSet];
-
+var currentQuestion;
 
 startQuiz();
 
@@ -84,14 +86,17 @@ function startQuiz() {
   
   getNewQuestion();
   startTimer();
+  
 }
 
 function endQuiz(){}
 
+
+
 // The setTimer function starts and stops the timer and may be triggers ??endQuiz()??
 function startTimer() {
   // Sets timer
-  timerCount = 60;
+  timerCount = 45;
   timer = setInterval(function() {
     timerCount--;
     timerElement.textContent = timerCount;
@@ -111,6 +116,11 @@ function startTimer() {
       clearInterval(timer);
       endQuiz();
     }
+
+    // if (!selectedAnswer == currentQuestion.answer) {
+    //   // decrease the seconds left
+    //   timerCount = timerCount - 10;
+    // }
 
   }, 1000);
 }
@@ -153,7 +163,7 @@ function getNewQuestion() {
 choices.forEach(function(choice) {
   choice.addEventListener("click", function(event) {
 
-  console.log(event.target);
+    console.log(event.target);
 
     
     if (!acceptingAnswers) {
@@ -163,17 +173,28 @@ choices.forEach(function(choice) {
 
     var selectedChoice = event.target;
     var selectedAnswer = selectedChoice.dataset["number"];
-
     var answerValue = "incorrect";
+
     if (selectedAnswer == currentQuestion.answer){
       answerValue = "correct";
+      showCorrectAnswers();
     }
-
+    else {
+      timerCount = timerCount - 5;
+    }  
+  
+    // Here the answerValue is added as a class so to make colors appear temporarily and show correct and incorrect choices. Colors are removed with a timeout function so user can notice them.
     selectedChoice.parentElement.classList.add(answerValue);
 
     setTimeout(function() {
       selectedChoice.parentElement.classList.remove(answerValue);
       getNewQuestion();
     }, 1000);
-  })
+    
+    function showCorrectAnswers(){
+        correctCount ++;
+        correctAnswersElement.textContent = correctCount + "/" + 5;
+    }
+        
+  })  
 })

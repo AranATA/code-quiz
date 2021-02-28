@@ -1,7 +1,17 @@
+
+
+section {
+    max-width: 55rem;
+}
+
 .article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     outline: 0.3rem solid rgba(129, 30, 172, 0.8);
     outline-offset: -1rem;
-    padding: 4.5rem 8rem;
+    padding: 4.75rem 5.25rem;
 }
 
 .quest-choices {
@@ -12,7 +22,7 @@
     overflow:hidden;
     border: 0.3rem solid rgba(129, 30, 172, 0.8);
     border-radius: 3rem;
-    background-color: #ebe5e8;
+    background-color: #f8d4e7;
 }
 
 .quest-choices:hover {
@@ -26,10 +36,14 @@
 .choice-letter {
     padding: 1rem 1.8rem;
     background-color:rgba(129, 30, 172, 0.8);
-    color:#ebe5e8
+    font-size: 3rem;
+    color:#ebe5e8;
+    display: flex;
+    align-items: center;
 }
 
 .choice-text {
+    text-justify: inter-word;
     padding: 1.25rem;
     font-size: 2rem;
     width: 100%;
@@ -42,26 +56,30 @@
 .incorrect {
     background-color:#dc3545
 }
-/* .timer{
 
+header {
+    width: 50%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
 
-} */
+}
 
-.timer-text {
+.header-item {
     /* background-color: #ebe5e8; */
-    padding: 2.2rem 1.5rem;
-    width: 100%;
+    padding: 2.5rem 1.8rem;
+    width:148px;
     text-align: center;
     border: 0.3rem solid rgba(129, 30, 172, 0.8);;
-    border-radius: 6.4rem;
+    border-radius: 7.5rem;
     margin-bottom: 10rem;
     text-decoration: none;
   
 }
 
-.timer-count {
+.counters {
     font-size: 4rem;
     font-weight: 500;
     color: #7b238d;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
 }
