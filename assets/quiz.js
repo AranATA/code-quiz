@@ -1,7 +1,3 @@
-console.log("hello")
-
-// check these later!
-
 var question = document.getElementById("question-line");
 
 var choices = Array.from(document.getElementsByClassName("choice-text"));
@@ -13,7 +9,7 @@ var timerCount;
 var correctAnswersElement = document.getElementById("correct-count");
 var correctCount = 0;
 
-
+// var scoreText = document.getElementById('score');
 
 // it is an object!
 var currentQuestion = {};
@@ -21,15 +17,7 @@ var currentQuestion = {};
 var acceptingAnswers = false;
 var selectedAnswer;
 
-var quizComplete = false;
-
-var score = 0;
-
-// shows the question you are answering
-var questionCounter = 0;
-
-var availableQuestions = [];
-
+// var availableQuestions = [];
 var questionSet = [
   {
     questionProp: "Why do we need to convert an object into JSON in order for it to properly persist to local storage?",
@@ -73,127 +61,110 @@ var questionSet = [
     answer: 2
   }
 ];
-
 availableQuestions = [...questionSet];
+
 var currentQuestion;
+var correctPoints = 10
+var score = 0;
 
 startQuiz();
 
 function startQuiz() {
-  quizComplete = false;
-  questionCounter = 0;
+  
+  // quizComplete = false;
+  // questionCounter = 0;
   score = 0;
-  
-  getNewQuestion();
   startTimer();
-  
+  getNewQuestion();
+    
 }
 
-function endQuiz(){}
 
-
-
-// The setTimer function starts and stops the timer and may be triggers ??endQuiz()??
 function startTimer() {
-  // Sets timer
+  
   timerCount = 45;
   timer = setInterval(function() {
+    
     timerCount--;
     timerElement.textContent = timerCount;
-    
-    if (timerCount >= 0) {
-      // Tests if win condition is met
-      if (quizComplete && timerCount > 0) {
-        // Clears interval and stops timer
-        clearInterval(timer);
-        endQuizEarly();
-      }
-    }
-    
-    // Tests if time has run out
-    if (timerCount === 0) {
-      // Clears interval
+
+    if (timerCount <= 0) {
+      timerElement.textContent = 0
       clearInterval(timer);
-      endQuiz();
+      localStorage.setItem('mostRecentScore', score);
+      setTimeout(function() {
+      return window.location.assign("final.html");
+      }, 1250);
     }
 
-    // if (!selectedAnswer == currentQuestion.answer) {
-    //   // decrease the seconds left
-    //   timerCount = timerCount - 10;
-    // }
+    if (timerCount > 0) {
+      if (availableQuestions.length === 0) {
+        clearInterval(timer);
+        localStorage.setItem('mostRecentScore', score);
+        setTimeout(function() {
+        return window.location.assign("final.html");
+        }, 1250);
+      }
+    }
 
   }, 1000);
 }
 
-console.log(timerCount);
-
-//   if (availableQuestions.length === 0 || TIMER! questionCounter >= MAX_QUESTIONS) {
-    //go to the end page
-    // return window.location.assign("/end.html");
-
 function getNewQuestion() {
-  // if (availableQuestions.length === 0 || timerCount === 0) {
-  // //go to the end page
-  // return window.location.assign('end.html');
-  // }
+  
 
-  questionCounter++;
 
-  var questionIndex = Math.floor(Math.random() * availableQuestions.length);
-
-  console.log(questionIndex);
-
+  questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
-
   question.innerText = currentQuestion.questionProp;
-
-  console.log(question);
 
   choices.forEach(function(choice) {
     var number = choice.dataset["number"];
     choice.innerText = currentQuestion["choice" + number];
   });
-
-  availableQuestions.splice(questionIndex, 1);
-
+ 
   acceptingAnswers = true;
+  
 }
 
 
 choices.forEach(function(choice) {
+  
   choice.addEventListener("click", function(event) {
 
-    console.log(event.target);
-
-    
     if (!acceptingAnswers) {
       return;
     }
+    
     acceptingAnswers = false;
-
+    
     var selectedChoice = event.target;
     var selectedAnswer = selectedChoice.dataset["number"];
     var answerValue = "incorrect";
 
     if (selectedAnswer == currentQuestion.answer){
       answerValue = "correct";
+      score = score + correctPoints;
       showCorrectAnswers();
     }
     else {
       timerCount = timerCount - 5;
     }  
   
+    availableQuestions.splice(questionIndex, 1);
+
     // Here the answerValue is added as a class so to make colors appear temporarily and show correct and incorrect choices. Colors are removed with a timeout function so user can notice them.
     selectedChoice.parentElement.classList.add(answerValue);
-
+    
     setTimeout(function() {
       selectedChoice.parentElement.classList.remove(answerValue);
+      
       getNewQuestion();
     }, 1000);
     
-    function showCorrectAnswers(){
-        correctCount ++;
-        correctAnswersElement.textContent = correctCount + "/" + 5;
+     function showCorrectAnswers(){
+      correctCount ++;
+      correctAnswersElement.textContent = correctCount + "/" + 5;
     }
         
   })  

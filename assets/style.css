@@ -1,14 +1,14 @@
 :root {
-    background-color: #ffecf6;
+    --darktext: rgb(119, 12, 101);
+    --darkbg: rgb(119, 12, 101);
+    --lighttext:rgb(235, 229, 232);
+    --lightbg:rgb(255, 236, 246);
+    --buttonborder: rgba(170, 50, 220, .8);
+    --lightborder: rgb(235, 229, 232);
+    --darkborder: rgb(119, 12, 101);
+    
+    background-color: var(--lightbg);
     font-size: 62.5%;
-
-    /* --darktext: rgb(8, 32, 83);
-    --lighttext:rgb(94, 182, 204);
-    --darkbg:rgb(3, 22, 27);
-    --lightbg:rgb(94, 182, 204);
-    --imageborder: rgb(39, 92, 207);
-    --headingborder: rgb(8, 32, 83); */
-
   }
 
   * {
@@ -27,11 +27,13 @@
   }
 
   h1 {
-    font-size: 7.25rem;
-    color: #7b238d;
+    font-size: 6.25rem;
+    font-weight: 100;
+    color: var(--lighttext);
     text-justify: inter-word;
     text-align: center;
-    margin-bottom: 6rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   h1 > span {
@@ -40,32 +42,73 @@
   }
   
   h2 {
-    font-size: 2.75rem;
+    font-size: 5rem;
+    color: var(--lighttext);
     font-weight: 150;
     text-align:center;
-    line-height: 4rem;
-    margin-bottom: 4rem;
+    line-height: 6rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
   }
   
   h3 {
-    font-size: 1.75rem;
-    font-weight: 500;
-    line-height: 1.8rem;
+    font-size: 2.75rem;    
+    font-weight: 150;
+    text-align:center;
+    line-height: 3.5rem;
+    margin-bottom: 4rem;
   }
 
+  h4 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    text-align:center;
+    line-height: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  form {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input {
+    width: 25rem;
+    padding: 1.25rem;
+    margin-bottom: 2.5rem;
+    border: 0.3rem solid var(--buttonborder);
+    border-radius: 3.75rem;
+    text-align: center;
+    font-size: 2.5rem;
+    
+  }
+  
 /* utility classes */
 
-  .intro {
-    background-color: #770c65;
-    color:#ebe5e8;
+.intro {
+  width:100%;
+  height:740px;
+  background-color: var(--darkbg);
+  text-align: justify;
+  text-justify: inter-character;
+  outline: 0.3rem solid var(--lightborder);
+  outline-offset: -1.5rem;
+  padding: 5rem 5rem 7rem 5rem;
+  margin-bottom: 4.5rem;
+}
+
+  .intro-p {
+    
+    color: var(--lighttext);
     font-size: 2.5rem;
     text-align: justify;
     text-justify: inter-character;
     line-height: 3.8rem;
-    outline: 0.25rem solid #ebe5e8;
-    outline-offset: -1rem;
     padding: 4rem;
-    margin-bottom: 4.5rem;
+    margin-bottom: 3.5rem;
   }
   
   .main {
@@ -98,14 +141,14 @@
 
  /* Buttons */
  .btn {
-  font-size: 2.85rem;
-  font-weight: 700;
-  color: #7b238d;
-  background-color: #f8d4e7;
+  font-size: 2.7rem;
+  font-weight: 600;
+  color: var(--darktext);
+  background-color:var(--lightbg);
   padding: 1rem 0;
-  width: 20rem;
+  width: 25rem;
   text-align: center;
-  border: 0.3rem solid rgba(170, 50, 220, .8);
+  border: 0.3rem solid var(--buttonborder);
   border-radius: 3.75rem;
   margin-bottom: 2rem;
   text-decoration: none;
@@ -121,6 +164,7 @@
 /* check to learn more here... */
 .btn[disabled]:hover {
   cursor: not-allowed;
+  filter: none;
   box-shadow: none;
   transform: none;
 }
