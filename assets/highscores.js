@@ -1,12 +1,7 @@
-
-// var highScoresList = document.getElementsById("highScoresList");
-
 var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-console.log(highScores[0]);
-
 var ul = document.querySelector("#highScoresList");
 
+// Here all il elements are created and styled in JS.
 highScores.forEach(function (highScores) {
     var li = document.createElement("li");
     ul.appendChild(li);

@@ -1,5 +1,4 @@
 var question = document.getElementById("question-line");
-
 var choices = Array.from(document.getElementsByClassName("choice-text"));
 
 var timerElement = document.getElementById("timer-count");
@@ -8,16 +7,13 @@ var timerCount;
 
 var correctAnswersElement = document.getElementById("correct-count");
 var correctCount = 0;
+var correctPoints = 10
+var score = 0;
 
-// var scoreText = document.getElementById('score');
-
-// it is an object!
 var currentQuestion = {};
-// it is for delay
+// it is for controlling the moment when it is time to get an answer. 
 var acceptingAnswers = false;
-var selectedAnswer;
 
-// var availableQuestions = [];
 var questionSet = [
   {
     questionProp: "Why do we need to convert an object into JSON in order for it to properly persist to local storage?",
@@ -61,24 +57,17 @@ var questionSet = [
     answer: 2
   }
 ];
+
+// availableQuestions array is a copy of the questionSet array but unlike questionSet which does not change, it loses a member each time a question is pulled out by "availableQuestions.splice(questionIndex, 1);".  
 availableQuestions = [...questionSet];
 
-var currentQuestion;
-var correctPoints = 10
-var score = 0;
-
-startQuiz();
+// FUNCTIONS AND EVENTS
 
 function startQuiz() {
-  
-  // quizComplete = false;
-  // questionCounter = 0;
   score = 0;
   startTimer();
   getNewQuestion();
-    
 }
-
 
 function startTimer() {
   
@@ -88,13 +77,14 @@ function startTimer() {
     timerCount--;
     timerElement.textContent = timerCount;
 
+    // the timeout functions are added to keep the page a little longer on the screen before moving on to the final.html.
     if (timerCount <= 0) {
       timerElement.textContent = 0
       clearInterval(timer);
       localStorage.setItem('mostRecentScore', score);
       setTimeout(function() {
       return window.location.assign("final.html");
-      }, 1250);
+      }, 750);
     }
 
     if (timerCount > 0) {
@@ -103,7 +93,7 @@ function startTimer() {
         localStorage.setItem('mostRecentScore', score);
         setTimeout(function() {
         return window.location.assign("final.html");
-        }, 1250);
+        }, 750);
       }
     }
 
@@ -112,8 +102,6 @@ function startTimer() {
 
 function getNewQuestion() {
   
-
-
   questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.questionProp;
@@ -126,7 +114,6 @@ function getNewQuestion() {
   acceptingAnswers = true;
   
 }
-
 
 choices.forEach(function(choice) {
   
@@ -150,17 +137,16 @@ choices.forEach(function(choice) {
     else {
       timerCount = timerCount - 5;
     }  
-  
+  // splice method is placed after an answer is processed in the code squence because otherwise it will erase the very last question before it is answered or the time is out.  
     availableQuestions.splice(questionIndex, 1);
 
     // Here the answerValue is added as a class so to make colors appear temporarily and show correct and incorrect choices. Colors are removed with a timeout function so user can notice them.
     selectedChoice.parentElement.classList.add(answerValue);
-    
+    // the timeout function is added to keep the page a little longer on the screen before moving on to the next question.
     setTimeout(function() {
       selectedChoice.parentElement.classList.remove(answerValue);
-      
       getNewQuestion();
-    }, 1000);
+    }, 750);
     
      function showCorrectAnswers(){
       correctCount ++;
@@ -169,3 +155,5 @@ choices.forEach(function(choice) {
         
   })  
 })
+
+startQuiz();

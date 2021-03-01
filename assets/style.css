@@ -6,7 +6,6 @@
     --buttonborder: rgba(170, 50, 220, .8);
     --lightborder: rgb(235, 229, 232);
     --darkborder: rgb(119, 12, 101);
-    
     background-color: var(--lightbg);
     font-size: 62.5%;
   }
@@ -35,12 +34,7 @@
     margin-top: 1rem;
     margin-bottom: 1.5rem;
   }
-  
-  h1 > span {
-    font-size: 3rem;
-    font-weight: 0;
-  }
-  
+
   h2 {
     font-size: 5rem;
     color: var(--lighttext);
@@ -86,14 +80,20 @@
     
   }
   
-/* utility classes */
+  ul {
+  list-style: none;
+  }
 
 .intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width:100%;
   height:740px;
   background-color: var(--darkbg);
   text-align: justify;
-  text-justify: inter-character;
+  /* text-justify: inter-character; */
   outline: 0.3rem solid var(--lightborder);
   outline-offset: -1.5rem;
   padding: 5rem 5rem 7rem 5rem;
@@ -123,23 +123,6 @@
     padding: 2rem;
   }
 
-  /* .main > * {
-    width: 100%;
-  } */
-  
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .flex-center {
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* we are skipping some classes here! Check them later, if necessary add them*/
-
- /* Buttons */
  .btn {
   font-size: 2.7rem;
   font-weight: 600;
@@ -161,7 +144,6 @@
   transition: transform 150ms;
 }
  
-/* check to learn more here... */
 .btn[disabled]:hover {
   cursor: not-allowed;
   filter: none;

@@ -1,17 +1,10 @@
-
 var username = document.getElementById("username");
-
 var saveScoreButton = document.querySelector("#saveScoreBtn");
-
 var finalScore = document.getElementById("finalScore");
-
 var mostRecentScore = localStorage.getItem('mostRecentScore');
-
 var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-
 finalScore.innerText = mostRecentScore + " Points!"
-
 
 username.addEventListener("keyup", function(){
     saveScoreButton.disabled = !username.value; 
@@ -20,8 +13,9 @@ username.addEventListener("keyup", function(){
 function saveHighScore(event){
     event.preventDefault();
 
+    // sort method is very useful in listing the values in an ascending or descending fashion.
     var scoreF = {
-        scoreFProp: Math.floor(Math.random() * 100),
+        scoreFProp: mostRecentScore,
         contestant: username.value,
     };
     highScores.push(scoreF);

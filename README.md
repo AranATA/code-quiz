@@ -10,10 +10,11 @@
 ## description
 
 ***
- This is an application to run a timed quiz on coding that has five multiple-choice questions. The app has the ability to<br>
- process the user input via mouse or keyboard in the browser window and determine the outcome. The last step includes<br>
- the storage and call back of the highest results. It is featuring a dynamically updated HTML and CSS powered by JavaScript<br>
+ This is an application to run a timed quiz on coding that has five multiple-choice questions. The app has the ability to
+ process the user input via mouse or keyboard in the browser window and determine the outcome. The last step includes
+ the storage and call back of the highest results. It is featuring a dynamically updated HTML and CSS powered by JavaScript
  code - all without any initial coding. This work focuses on utilizing an array of API's like local storage and event listeners.<br>
+The coding is organized over multiple HTML, CSS and JS files. Such an organization provided a better control over the whole and the parts.  
 <br>
 
 ## acceptance criteria
@@ -36,18 +37,34 @@ The codebase achieves the following criteria:<br>
 
 ***
 
-The flow chart:<br>
+A full view screenshot that shows the Home | Code Quiz:<br>
 <br>
 
-![alt text](assets/images/flow-chart.jpg)
+![alt text](assets/images/scrshot-home.png)
 
 <br>
 <br>
 
-A full view screenshot that shows the whole webpage:<br>
+A full view screenshot that shows the Questions | Code Quiz:<br>
 <br>
 
-![alt text](assets/images/scrshot.png)
+![alt text](assets/images/scrshot-questions.png)
+
+<br>
+<br>
+
+A full view screenshot that shows the Final | Code Quiz:<br>
+<br>
+
+![alt text](assets/images/scrshot-final.png)
+
+<br>
+<br>
+
+A full view screenshot that shows the High Scores | Code Quiz:<br>
+<br>
+
+![alt text](assets/images/scrshot-highscores.png)
 
 <br>
 <br>
@@ -55,7 +72,7 @@ A full view screenshot that shows the whole webpage:<br>
 A short video that shows how the UI works.<br>
 <br>
 
-![portfolio demo](assets/images/password-generator.gif)
+![portfolio demo](assets/images/code-quiz.gif)
 
 <br>
 <br>
@@ -68,6 +85,12 @@ These notes and links are listing some valuable references among others that I u
 <br>
 
 [https://developer.mozilla.org/](https://developer.mozilla.org/)
+
+[https://getbutterfly.com/generate-html-list-from-javascript-array/](https://getbutterfly.com/generate-html-list-from-javascript-array/)
+
+[https://www.kirupa.com/html5/random_numbers_js.htm](https://www.kirupa.com/html5/random_numbers_js.htm)
+
+[https://www.jamesqquick.com/blog/](https://www.jamesqquick.com/blog/) 
 
 [https://favicon.io/favicon-generator/](https://favicon.io/favicon-generator/)
 
